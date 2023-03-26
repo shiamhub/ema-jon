@@ -1,0 +1,12 @@
+.product img{
+    height: 286px;
+    width: 286px;
+    margin: 7px;
+    border-radius: 8px;
+}
+.product{
+    width: 300px;
+    height: 510px;
+    border: 1px solid burlywood;
+    border-radius: 8px;
+}
