@@ -25,18 +25,33 @@ const Shop = () => {
                 const quantity = storeCard[id];
                 addedProduct.quantity = quantity;
                 saveCard.push(addedProduct);
-
             };
-            // console.log(addedProduct);  
         };
         setCard(saveCard);
     }, [products]);
     
     const handleAddCard = (product) => {
-        const newCard = [...card, product];
+        // const newCard = [...card, product];
+        let newCard = [];
+        
+        const exists = card.find(pd => pd.id === product.id);
+        if(!exists) {
+            product.quantity = 1;
+            newCard = [...card, product];
+            
+        }
+        else {
+            exists.quantity = exists.quantity + 1;
+            const remaining = card.filter(pd => pd.id !== product.id);
+            console.log(remaining);
+            newCard = [...remaining, exists];
+            // console.log(newCard);
+        };
+
         setCard(newCard);
-        addToDb(product.id)
-    }
+        addToDb(product.id);
+
+    };
 
     return (
         <div className='shop-container'>
