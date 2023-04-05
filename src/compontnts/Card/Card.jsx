@@ -1,10 +1,9 @@
-import React from 'react';
 import './Card.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-const Card = ({card}) => {
+
+const Card = ({card, handleClearCard, children}) => {
     // const {card} = props;
     // console.log(card);
 
@@ -29,8 +28,9 @@ const Card = ({card}) => {
             <p>Total Shipping Charge: ${totalShipping}</p>
             <p>Tax: ${totalTax.toFixed(2)}</p>
             <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
-            <button>Clear Cart <FontAwesomeIcon icon={faTrashCan} /></button>
-            <button>Review Order <FontAwesomeIcon icon={faArrowRight} /></button>
+            <button onClick={handleClearCard}>Clear Cart <FontAwesomeIcon icon={faTrashCan} /></button>
+            {/* <button>Review Order <FontAwesomeIcon icon={faArrowRight} /></button> */}
+            {children}
         </div>
     );
 };
