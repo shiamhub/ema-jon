@@ -4,3 +4,14 @@
     position: sticky;
     top: 80px;
 }
+.card h6{
+    font-size: 21px;
+}
+.card h4{
+    font-size: 25px;
+}
+.card button{
+    background-color: #FF3030;
+    color: white;
+    margin-top: 20px;
+}

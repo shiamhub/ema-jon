@@ -39,11 +39,12 @@ const Shop = () => {
             product.quantity = 1;
             newCard = [...card, product];
             
+            // console.log(newCard);
         }
         else {
             exists.quantity = exists.quantity + 1;
             const remaining = card.filter(pd => pd.id !== product.id);
-            console.log(remaining);
+            // console.log(remaining);
             newCard = [...remaining, exists];
             // console.log(newCard);
         };

@@ -1,8 +1,11 @@
 import React from 'react';
 import './Card.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-const Card = (props) => {
-    const {card} = props;
+const Card = ({card}) => {
+    // const {card} = props;
     // console.log(card);
 
     let total = 0;
@@ -23,9 +26,11 @@ const Card = (props) => {
             <h4>Order Summary</h4>
             <p>Selected Items: {quantity}</p>
             <p>Total Price: ${total}</p>
-            <p>Total Shipping Charge: ${card.reduce((par, car) => par + car.shipping, 0)}</p>
+            <p>Total Shipping Charge: ${totalShipping}</p>
             <p>Tax: ${totalTax.toFixed(2)}</p>
             <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
+            <button>Clear Cart <FontAwesomeIcon icon={faTrashCan} /></button>
+            <button>Review Order <FontAwesomeIcon icon={faArrowRight} /></button>
         </div>
     );
 };

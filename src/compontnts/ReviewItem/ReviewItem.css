@@ -1,0 +1,39 @@
+.re-item{
+    width: 571px;
+    border: 1px solid darkgray;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.re-item img{
+    width: 91px;
+    height: 91px;
+    border-radius: 8px;
+}
+.details-icon{
+    font-size: 27px;
+}
+.re-item button{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.re-details p{
+    margin: 0px;
+}
+.re-details h2{
+    margin: 0px;
+}
+.re-details{
+    flex-grow: 1;
+}
+.re-details-title{
+    color: blueviolet;
+}
