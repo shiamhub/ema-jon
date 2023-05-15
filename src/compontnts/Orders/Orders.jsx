@@ -10,11 +10,9 @@ import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons'
 const Orders = () => {
     const savedCard = useLoaderData();
     const [card, setCard] = useState(savedCard);
-    console.log(savedCard);
 
     const handleRemoveCard = (id) => {
-        console.log(id);
-        const remaining = card.filter(product => product.id !== id);
+        const remaining = card.filter(product => product._id !== id);
         setCard(remaining);
         removeFromDb(id);
     }
@@ -28,7 +26,7 @@ const Orders = () => {
         <div className='shop-container'>
             <div className='re-con'>
                 {
-                    card.map(product => <ReviewItem key={product.id} product={product} handleRemoveCard={handleRemoveCard}></ReviewItem>)
+                    card.map(product => <ReviewItem key={product._id} product={product} handleRemoveCard={handleRemoveCard}></ReviewItem>)
                 }
             </div>
             <div className='card-con'>

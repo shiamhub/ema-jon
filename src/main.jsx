@@ -8,8 +8,11 @@ import Shop from './compontnts/Shop/Shop'
 import Orders from './compontnts/Orders/Orders'
 import Inventory from './compontnts/Inventory/Inventory'
 import Login from './compontnts/Login/Login'
-import cardProductLoaders from './loaders/CardProductLoader'
 import Checkout from './compontnts/Checkout/Checkout'
+import cardProductLoaders from './loaders/cardProductLoader'
+import SignUp from './compontnts/SignUp/SignUp'
+import AuthProvider from './provider/AuthProvider'
+import PrivateRoute from './route/PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Shop></Shop>,
+        loader: () => fetch('http://localhost:5000/totalProducts')
       },
       {
         path: 'orders',
@@ -27,15 +31,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'inventory',
-        element: <Inventory></Inventory>,
+        element: <PrivateRoute><Inventory></Inventory></PrivateRoute>,
       },
       {
         path: "checkout",
-        element: <Checkout></Checkout>
+        element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
       },
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path: 'signup',
+        element: <SignUp></SignUp>
       }
     ]
   }
@@ -43,6 +51,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </React.StrictMode>,
 )

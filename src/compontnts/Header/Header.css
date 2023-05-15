@@ -18,3 +18,7 @@
 .h-nav div a:hover{
     color: blueviolet;
 }
+.text-email{
+    color: white;
+    padding-left: 5px;
+}
